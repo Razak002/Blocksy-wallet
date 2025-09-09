@@ -7,15 +7,15 @@ This project is built with **React** and **Vite**, providing a fast and modern d
 - ⚛️ React 18 with hooks and modern APIs
 - 🔥 Hot Module Replacement (HMR)
 - 🛠 ESLint integration for clean code
-- 🎨 Tailwind CSS support (if you’re using it)
+- 🎨 Tailwind CSS support 
 - 🌐 Ready for deployment
 
 ## 🛠 Tech Stack
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [ESLint](https://eslint.org/)
-- [React Router](https://reactrouter.com/) *(optional if you added it)*
-- [RainbowKit + Wagmi](https://www.rainbowkit.com/) *(if your crypto integration stays)*
+- [React Router](https://reactrouter.com/)
+- [RainbowKit + Wagmi](https://www.rainbowkit.com/)
 
 ## 🚀 Getting Started
 

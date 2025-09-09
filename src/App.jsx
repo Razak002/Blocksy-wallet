@@ -29,7 +29,7 @@ const App = () => {
           <Route
             path="*"
             element={
-              <div className="animate-bounce flex flex-col justify-center items-centertext-center text-white text-2xl p-20">
+              <div className="animate-bounce-slow flex flex-col justify-center items-centertext-center text-white text-2xl p-20">
                 <h1 className="text-5xl font-bold text-center text-white">COMING <br/>
                 SOON</h1>
                 <p className="text-xl font-medium text-center text-white">SOMETHING BIG IS LOADING STAY TUNED....</p>

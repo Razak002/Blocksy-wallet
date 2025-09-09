@@ -26,6 +26,7 @@ export default {
       },
       animation: {
         "slide-in": "slide-in 0.5s ease-out",
+        'bounce-slow': 'bounce 3s infinite',
       },
     },
   },

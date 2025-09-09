@@ -1,10 +1,8 @@
 
-// import { AiFillPayCircle } from 'react-icons/ai';
 import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from "react-icons/bs";
 import Loader from './Loader';
 import { useState } from 'react';
-// import { shortenAddress } from '../utils/shortenAddress';
 
 
 const Welcome = () => {
@@ -50,10 +48,10 @@ const Welcome = () => {
                         <div className={` ${commonStyles}`}>
                             Security
                         </div>
-                        <div className={`rounded-tr-2xl ${commonStyles}`}>
+                        <div className={`sm:rounded-tr-2xl ${commonStyles}`}>
                             Ethereum
                         </div>
-                        <div className={`rounded-bl-2xl ${commonStyles}`}>
+                        <div className={`sm:rounded-bl-2xl ${commonStyles}`}>
                             Web3.0
                         </div>
                         <div className={`${commonStyles}`}>

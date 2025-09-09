@@ -4,10 +4,10 @@ import { BsGlobeAmericas, BsGraphUpArrow, BsLightning, BsLock, BsArrowUp, BsArro
 import { useEffect, useState } from "react"
 
 const Market = () => {
-  const [prices, setPrices] = useState({})
-  const [previousPrices, setPreviousPrices] = useState({})
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [prices, setPrices] = useState({});
+  const [previousPrices, setPreviousPrices] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,10 +73,10 @@ const Market = () => {
             <span className="text-[#2952e3] animate-pulse">Open to Everyone</span>
           </h2>
 
-          <p className="text-center text-lg sm:text-xl lg:text-2xl max-w-4xl mx-auto mb-8 text-slate-200 leading-relaxed">
-            Trade, send, and grow your crypto portfolio with ease. Whether you`&apos;`re buying Bitcoin, swapping Ethereum, or
+          <p className="text-center text-[20px] sm:text-xl lg:text-2xl max-w-4xl mx-auto mb-8 text-slate-200 leading-relaxed">
+            Trade, send, and grow your crypto portfolio with ease. Whether you&#39;re buying Bitcoin, swapping Ethereum, or
             sending USDT across borders
-            <span className="font-semibold text-[#2952e3] bg-blue-500/20 px-3 py-1 rounded-lg mx-2 border border-blue-500/30">
+            <span className="font-semibold text-[#2952e3] bg-blue-500/20 px-2 py-1 rounded-lg mx-2 border border-blue-500/30">
               {" "}
               Blocksy
             </span>{" "}
@@ -84,7 +84,7 @@ const Market = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8 mb-12 text-sm">
+        <div className="flex flex-wrap justify-center gap-8 mb-12 text-sm cursor-pointer">
           <div className="text-center group hover:scale-110 transition-transform duration-300">
             <div className="text-3xl font-bold text-white group-hover:text-[#2952e3] transition-colors">$2.4B+</div>
             <div className="text-slate-300">Trading Volume</div>

@@ -99,10 +99,10 @@ const Welcome = () => {
                                 Send Now
                             </button>
                         )} */}
-                        <button
+                        <button 
                             type="button"
                             onClick={handleSubmit}
-                            className="text-white w-full mt-2 border-[1px] p-2 border-[#3df7c] rounded-full cursor-pointer"
+                            className="animate-pulse text-white w-full mt-2 border-[1px] p-2 border-[#3df7c] rounded-full cursor-pointer"
                         >
                             Send Now
                         </button>

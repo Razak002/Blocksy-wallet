@@ -3,6 +3,7 @@ import logo from "../assets/images/logo.png";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -26,12 +27,10 @@ const Navbar = () => {
     { title: "Market", to: "/market" },
     { title: "Exchange", to: "/exchange" },
     { title: "Tutorials", to: "/tutorials" },
-    { title: "Wallets", to: "/wallets" },
   ];
 
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
-      {/* Logo */}
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
         <Link to="/">
           <img src={logo} alt="logo" className="w-44 cursor-pointer" />
@@ -46,12 +45,8 @@ const Navbar = () => {
             to={item.to}
           />
         ))}
-        <li className="bg-blue-700 py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-blue-500">
-          <Link to="/login">Login</Link>
-        </li>
+        <ConnectButton />
       </ul>
-
-      {/* Mobile Menu */}
       <div className="flex relative">
         {toggleMenu ? (
           <AiOutlineClose

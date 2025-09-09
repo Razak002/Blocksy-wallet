@@ -1,8 +1,25 @@
-# React + Vite
+# 🚀 React + Vite Starter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is built with **React** and **Vite**, providing a fast and modern development experience with Hot Module Replacement (HMR), ESLint rules, and support for optimized builds.
 
-Currently, two official plugins are available:
+## 📦 Features
+- ⚡️ Blazing fast development with [Vite](https://vitejs.dev/)
+- ⚛️ React 18 with hooks and modern APIs
+- 🔥 Hot Module Replacement (HMR)
+- 🛠 ESLint integration for clean code
+- 🎨 Tailwind CSS support (if you’re using it)
+- 🌐 Ready for deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tech Stack
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [ESLint](https://eslint.org/)
+- [React Router](https://reactrouter.com/) *(optional if you added it)*
+- [RainbowKit + Wagmi](https://www.rainbowkit.com/) *(if your crypto integration stays)*
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the repo
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo

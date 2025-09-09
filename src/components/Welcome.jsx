@@ -1,12 +1,14 @@
-
 import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from "react-icons/bs";
-import Loader from './Loader';
-import { useState } from 'react';
-
+import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { shortenAddress } from '../utils/shortenAddress';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const Welcome = () => {
-    const [loading, setLoading] = useState(true);
+    const { address, isConnected } = useAccount();
+    const { disconnect } = useDisconnect();
+    const { connect, connectors, pendingConnector, error, isLoading } = useConnect();
+
     const Input = ({ placeholder, name, type, value, handleChange }) => (
         <input
             placeholder={placeholder}
@@ -20,49 +22,53 @@ const Welcome = () => {
 
     const handleSubmit = () => {
 
-    }
-    const commonStyles = 'min-h-[70px] rounded-sm text-white sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm'
-    const connectWallet = () => {
+    };
 
-    }
+    const commonStyles =
+        'min-h-[70px] rounded-sm text-white sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm';
+    const connectWallet = () => {
+        if (connectors && connectors[0]) {
+            connect({ connector: connectors[0] });
+        }
+    };
+
     return (
         <div className='flex w-full justify-center items-center'>
             <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
                 <div className="flex flex-1 justify-start flex-col mf:mr-10">
-                    <h1 className='text-3xl sm:text-5xl text-white text-gradient py-1'>Your Gateway to 
-                        <br />Digital Finance
+                    <h1 className='text-3xl sm:text-5xl text-white text-gradient py-1'>
+                        Your Gateway to <br />Digital Finance
                     </h1>
-                    <p className="text-left mt-5 text-white">Seamlessly Buy, Sell, and Send Crypto Anywhere fast and sleek on Blocksy</p>
+                    <p className="text-left mt-5 text-white">
+                        Seamlessly Buy, Sell, and Send Crypto Anywhere fast and sleek on Blocksy
+                    </p>
 
-                    <button
-                        type="button"
-                        onClick={connectWallet}
-                        className="flex flex-row justify-center items-center my-5 bg-[#2952e3] hover:bg-[#2546bd] cursor-pointer rounded-full p-3 "
-                    ><p className="text-white font-semibold text-base">connect wallet</p>
-                    </button>
+                    {isConnected ? (
+                        <button
+                            type="button"
+                            onClick={() => disconnect()}
+                            className="flex flex-row justify-center items-center my-5 bg-red-500 hover:bg-red-600 cursor-pointer rounded-full p-3 "
+                        >
+                            <p className="text-white font-semibold text-base">Disconnect</p>
+                        </button>
+                    ) : (
+                        // 
+                        <div className='mt-2'>
+                            <ConnectButton />
+                        </div>
+                    )}
+
+                    {error && <p className="text-red-400">{error.message}</p>}
 
                     <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
-                        <div className={`rounded-tl-2xl ${commonStyles}`}>
-                            Reliability
-                        </div>
-                        <div className={` ${commonStyles}`}>
-                            Security
-                        </div>
-                        <div className={`sm:rounded-tr-2xl ${commonStyles}`}>
-                            Ethereum
-                        </div>
-                        <div className={`sm:rounded-bl-2xl ${commonStyles}`}>
-                            Web3.0
-                        </div>
-                        <div className={`${commonStyles}`}>
-                            Low Fees
-                        </div>
-                        <div className={`rounded-br-2xl ${commonStyles}`}>
-                            Blockchain
-                        </div>
+                        <div className={`rounded-tl-2xl ${commonStyles}`}>Reliability</div>
+                        <div className={` ${commonStyles}`}>Security</div>
+                        <div className={`sm:rounded-tr-2xl ${commonStyles}`}>Ethereum</div>
+                        <div className={`sm:rounded-bl-2xl ${commonStyles}`}>Web3.0</div>
+                        <div className={`${commonStyles}`}>Low Fees</div>
+                        <div className={`rounded-br-2xl ${commonStyles}`}>Blockchain</div>
                     </div>
                 </div>
-
 
                 {/* right side */}
                 <div className="flex flex-col flex-1 jusify-start items-center w-full mf:mt-0 mt-10">
@@ -75,7 +81,9 @@ const Welcome = () => {
                                 <BsInfoCircle fontSize={17} color='#fff' />
                             </div>
                             <div>
-                                <p className='text-white font-light text-sm'>Address: 0xr665s7dfhjeruiFYUH</p>
+                                <p className='text-white font-light text-sm'>
+                                    {isConnected ? shortenAddress(address) : "Not connected"}
+                                </p>
                                 <p className='text-white text-xl mt-1 font-semibold'>Ethereum</p>
                             </div>
                         </div>
@@ -88,31 +96,19 @@ const Welcome = () => {
                         <Input placeholder="Enter Message" name="message" type="text" handleChange={() => { }} />
 
                         <div className='h-[1px] w-full bg-gray-400 my-2' />
-                        {/* {loading ? (
-                            <Loader />
-                        ) : (
-                            <button
-                                type="button"
-                                onClick={handleSubmit}
-                                className="text-white w-full mt-2 border-[1px] p-2 border-[#3df7c] rounded-full cursor-pointer"
-                            >
-                                Send Now
-                            </button>
-                        )} */}
-                        <button 
+
+                        <button
                             type="button"
                             onClick={handleSubmit}
                             className="animate-pulse text-white w-full mt-2 border-[1px] p-2 border-[#3df7c] rounded-full cursor-pointer"
                         >
                             Send Now
                         </button>
-
                     </div>
                 </div>
-
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Welcome
+export default Welcome;
